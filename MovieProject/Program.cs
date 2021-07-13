@@ -23,4 +23,9 @@ namespace MovieProject
                     webBuilder.UseStartup<Startup>();
                 });
     }
+
+    //1. program.cs main method is the one that execute first =>
+    //2. CreateHostBuilder kestral server  is a cross platform server(.NET Core)
+    //3.  Use this method to add services to the container. Use this method to configure the HTTP request pipeline.
+    //4. 
 }

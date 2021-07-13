@@ -38,3 +38,14 @@ C:\Users\guohu\source\repos\AntraMovie\MovieProject\obj\Debug\net5.0\ref\MoviePr
 C:\Users\guohu\source\repos\AntraMovie\MovieProject\obj\Debug\net5.0\MovieProject.pdb
 C:\Users\guohu\source\repos\AntraMovie\MovieProject\obj\Debug\net5.0\MovieProject.genruntimeconfig.cache
 C:\Users\guohu\source\repos\AntraMovie\MovieProject\obj\Debug\net5.0\MovieProject.csproj.CopyComplete
+C:\Users\guohu\source\repos\AntraMovie\MovieProject\bin\Debug\net5.0\System.Data.SqlClient.dll
+C:\Users\guohu\source\repos\AntraMovie\MovieProject\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Users\guohu\source\repos\AntraMovie\MovieProject\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Users\guohu\source\repos\AntraMovie\MovieProject\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Users\guohu\source\repos\AntraMovie\MovieProject\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\guohu\source\repos\AntraMovie\MovieProject\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\guohu\source\repos\AntraMovie\MovieProject\bin\Debug\net5.0\ApplicationCore.dll
+C:\Users\guohu\source\repos\AntraMovie\MovieProject\bin\Debug\net5.0\Infrastructure.dll
+C:\Users\guohu\source\repos\AntraMovie\MovieProject\bin\Debug\net5.0\ApplicationCore.pdb
+C:\Users\guohu\source\repos\AntraMovie\MovieProject\bin\Debug\net5.0\Infrastructure.pdb
+C:\Users\guohu\source\repos\AntraMovie\MovieProject\obj\Debug\net5.0\Razor\Views\Home\GetALLMovies.cshtml.g.cs

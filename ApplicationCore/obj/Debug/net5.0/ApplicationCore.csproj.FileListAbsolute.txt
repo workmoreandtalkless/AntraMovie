@@ -1,0 +1,13 @@
+C:\Users\guohu\source\repos\AntraMovie\ApplicationCore\bin\Debug\net5.0\appsettings.json
+C:\Users\guohu\source\repos\AntraMovie\ApplicationCore\bin\Debug\net5.0\ApplicationCore.deps.json
+C:\Users\guohu\source\repos\AntraMovie\ApplicationCore\bin\Debug\net5.0\ApplicationCore.dll
+C:\Users\guohu\source\repos\AntraMovie\ApplicationCore\bin\Debug\net5.0\ref\ApplicationCore.dll
+C:\Users\guohu\source\repos\AntraMovie\ApplicationCore\bin\Debug\net5.0\ApplicationCore.pdb
+C:\Users\guohu\source\repos\AntraMovie\ApplicationCore\obj\Debug\net5.0\ApplicationCore.csproj.AssemblyReference.cache
+C:\Users\guohu\source\repos\AntraMovie\ApplicationCore\obj\Debug\net5.0\ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\guohu\source\repos\AntraMovie\ApplicationCore\obj\Debug\net5.0\ApplicationCore.AssemblyInfoInputs.cache
+C:\Users\guohu\source\repos\AntraMovie\ApplicationCore\obj\Debug\net5.0\ApplicationCore.AssemblyInfo.cs
+C:\Users\guohu\source\repos\AntraMovie\ApplicationCore\obj\Debug\net5.0\ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Users\guohu\source\repos\AntraMovie\ApplicationCore\obj\Debug\net5.0\ApplicationCore.dll
+C:\Users\guohu\source\repos\AntraMovie\ApplicationCore\obj\Debug\net5.0\ref\ApplicationCore.dll
+C:\Users\guohu\source\repos\AntraMovie\ApplicationCore\obj\Debug\net5.0\ApplicationCore.pdb

@@ -25,7 +25,7 @@ namespace Infrastructure.Repositories
                 connection.Open();
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "Select Id, DName, Loc from Dept";
+                cmd.CommandText = "Select top 10 Id, Title from Movie";
 
                 cmd.Connection = connection;
 
