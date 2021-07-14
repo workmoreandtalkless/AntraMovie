@@ -1,4 +1,3 @@
-C:\Users\guohu\source\repos\AntraMovie\Infrastructure\bin\Debug\net5.0\appsettings.json
 C:\Users\guohu\source\repos\AntraMovie\Infrastructure\bin\Debug\net5.0\Infrastructure.deps.json
 C:\Users\guohu\source\repos\AntraMovie\Infrastructure\bin\Debug\net5.0\Infrastructure.dll
 C:\Users\guohu\source\repos\AntraMovie\Infrastructure\bin\Debug\net5.0\ref\Infrastructure.dll
@@ -14,3 +13,6 @@ C:\Users\guohu\source\repos\AntraMovie\Infrastructure\obj\Debug\net5.0\Infrastru
 C:\Users\guohu\source\repos\AntraMovie\Infrastructure\obj\Debug\net5.0\Infrastructure.dll
 C:\Users\guohu\source\repos\AntraMovie\Infrastructure\obj\Debug\net5.0\ref\Infrastructure.dll
 C:\Users\guohu\source\repos\AntraMovie\Infrastructure\obj\Debug\net5.0\Infrastructure.pdb
+C:\Users\guohu\source\repos\AntraMovie\Infrastructure\bin\Debug\net5.0\Infrastructure.runtimeconfig.json
+C:\Users\guohu\source\repos\AntraMovie\Infrastructure\bin\Debug\net5.0\Infrastructure.runtimeconfig.dev.json
+C:\Users\guohu\source\repos\AntraMovie\Infrastructure\obj\Debug\net5.0\Infrastructure.genruntimeconfig.cache
