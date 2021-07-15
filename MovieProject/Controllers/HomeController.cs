@@ -48,7 +48,7 @@ namespace MovieProject.Controllers
 
         public async Task<IActionResult>  Privacy()
         {
-            var movie = await _movieService.GetTopRevenueMovies();
+            var movie = await _movieService.GetMostRevenueMovies();
             
             return View(movie);
         }
