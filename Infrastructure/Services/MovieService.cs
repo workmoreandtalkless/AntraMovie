@@ -38,5 +38,18 @@ namespace Infrastructure.Services
             }
             return movieCards;
         }
+
+        public async Task<MovieCardResponseModel> GetMostRevenueMovies()
+        {
+            var movie = await _movieRepository.GetHighestGrossingMovies();
+            var movieCard = new MovieCardResponseModel
+            {
+                Id = movie.Id, 
+                Budget = movie.Budget.GetValueOrDefault(), 
+                Title = movie.Title, 
+                PosterUrl = movie.PosterUrl 
+            };
+            return movieCard;
+        }
     }
 }

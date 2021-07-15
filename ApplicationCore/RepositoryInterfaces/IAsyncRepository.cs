@@ -15,11 +15,11 @@ namespace ApplicationCore.RepositoryInterfaces
 
         Task<T> GetById(int id);
         Task<IEnumerable<T>> ListAllAsync();
-        Task<IEnumerable<T>> ListAsync(Expression<Func<T, bool>> filter);
+        Task<IEnumerable<T>> ListAsync(Expression<Func<T, bool>> filter); // https://michael-mckenna.com/func-t-vs-expression-func-t-in-linq/
         Task<T> AddAsync(T entity);
         Task<T> UpdateAsync(T entity);
         Task<T> DeleteAsync(T entity);
-        Task<int> GetCountAsync(Expression<Func<T, bool>> filter=null);
+        Task<int> GetCountAsync(Expression<Func<T, bool>> filter=null); // default value is null , null show all without filter anything
    
 
     }

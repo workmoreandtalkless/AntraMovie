@@ -30,12 +30,13 @@ namespace MovieProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<IMovieService, MovieService>();
-            services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddDbContext<MovieShopDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("MovieShopDbConnecion"));
             });
+            services.AddScoped<IMovieService, MovieService>();
+            services.AddScoped<IMovieRepository, MovieRepository>();
+        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,7 +63,7 @@ namespace MovieProject
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=privacy}/{id?}");
             });
         }
     }

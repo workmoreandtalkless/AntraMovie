@@ -7118,37 +7118,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\guohu\\.nuget\\packages\\": {}
+    "/Users/guohuazhang/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\guohu\\source\\repos\\AntraMovie\\MovieProject\\MovieProject.csproj",
+      "projectUniqueName": "/Users/guohuazhang/Documents/Antra/AntraMovie/MovieProject/MovieProject.csproj",
       "projectName": "MovieProject",
-      "projectPath": "C:\\Users\\guohu\\source\\repos\\AntraMovie\\MovieProject\\MovieProject.csproj",
-      "packagesPath": "C:\\Users\\guohu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\guohu\\source\\repos\\AntraMovie\\MovieProject\\obj\\",
+      "projectPath": "/Users/guohuazhang/Documents/Antra/AntraMovie/MovieProject/MovieProject.csproj",
+      "packagesPath": "/Users/guohuazhang/.nuget/packages/",
+      "outputPath": "/Users/guohuazhang/Documents/Antra/AntraMovie/MovieProject/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\guohu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/guohuazhang/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\guohu\\source\\repos\\AntraMovie\\ApplicationCore\\ApplicationCore.csproj": {
-              "projectPath": "C:\\Users\\guohu\\source\\repos\\AntraMovie\\ApplicationCore\\ApplicationCore.csproj"
+            "/Users/guohuazhang/Documents/Antra/AntraMovie/ApplicationCore/ApplicationCore.csproj": {
+              "projectPath": "/Users/guohuazhang/Documents/Antra/AntraMovie/ApplicationCore/ApplicationCore.csproj"
             },
-            "C:\\Users\\guohu\\source\\repos\\AntraMovie\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\guohu\\source\\repos\\AntraMovie\\Infrastructure\\Infrastructure.csproj"
+            "/Users/guohuazhang/Documents/Antra/AntraMovie/Infrastructure/Infrastructure.csproj": {
+              "projectPath": "/Users/guohuazhang/Documents/Antra/AntraMovie/Infrastructure/Infrastructure.csproj"
             }
           }
         }
@@ -7206,7 +7204,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
       }
     }
   }
