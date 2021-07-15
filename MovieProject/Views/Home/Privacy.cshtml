@@ -1,6 +1,13 @@
-﻿@{
+﻿@model List<ApplicationCore.Models.MovieCardResponseModel>
+
+@{
     ViewData["Title"] = "Privacy Policy";
 }
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+
+<div>
+    @movie.Id<br />
+    @movie.Title<br />
+</div>
