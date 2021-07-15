@@ -14,44 +14,29 @@ namespace Infrastructure.Services
 {
     public class MovieService : IMovieService
     {
-       
-        public MovieService()
+        private readonly IMovieRepository _movieRepository;
+        public MovieService(IMovieRepository movieRepository)
         {
-
+            _movieRepository = movieRepository;
         }
-        public List<MovieCardResponseModel> GetALLMovies()
+        public async Task<List<MovieCardResponseModel>> GetTopRevenueMovies()
         {
-            throw new NotImplementedException();
-        }
+            var movies = await _movieRepository.GetHighest30GrossingMovies();
 
-        public MovieCardResponseModel GetGenreById()
-        {
-            throw new NotImplementedException();
-        }
+            var movieCards = new List<MovieCardResponseModel>();
+            foreach(var movie in movies)
+            {
+                movieCards.Add(
+                    new MovieCardResponseModel 
+                    { Id = movie.Id, 
+                        Budget = movie.Budget.GetValueOrDefault(), 
+                        Title = movie.Title, 
+                        PosterUrl = movie.PosterUrl 
+                    }
+                    );
 
-        public MovieCardResponseModel GetMovieById()
-        {
-            throw new NotImplementedException();
-        }
-
-        public MovieCardResponseModel GetReviewById()
-        {
-            throw new NotImplementedException();
-        }
-
-        public MovieCardResponseModel GetTopRatedMovie()
-        {
-            throw new NotImplementedException();
-        }
-
-        public MovieCardResponseModel GetTopRevenueMovie()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<MovieCardResponseModel> GetTopRevenueMovies()
-        {
-            throw new NotImplementedException();
+            }
+            return movieCards;
         }
     }
 }

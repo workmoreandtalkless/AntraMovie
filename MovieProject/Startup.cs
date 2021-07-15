@@ -10,6 +10,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Infrastructure.Data;
+using ApplicationCore.ServiceInterfaces;
+using Infrastructure.Services;
+using ApplicationCore.RepositoryInterfaces;
+using Infrastructure.Repositories;
 
 namespace MovieProject
 {
@@ -26,6 +30,8 @@ namespace MovieProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IMovieService, MovieService>();
+            services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddDbContext<MovieShopDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("MovieShopDbConnecion"));

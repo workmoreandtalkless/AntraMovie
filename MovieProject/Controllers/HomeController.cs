@@ -7,6 +7,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Infrastructure.Repositories;
+using ApplicationCore.ServiceInterfaces;
+
 namespace MovieProject.Controllers
 {
     public class HomeController : Controller
@@ -14,23 +16,39 @@ namespace MovieProject.Controllers
         //Each and every request in MVC controller
         // localhost/home/index
 
-        private readonly ILogger<HomeController> _logger;
+       /* private readonly ILogger<HomeController> _logger;*/
+        private readonly IMovieService _movieService;
+        /*    public HomeController(ILogger<HomeController> logger)
+            {
+                _logger = logger;
 
-        public HomeController(ILogger<HomeController> logger)
+            }*/
+        public HomeController(IMovieService movieService)
         {
-            _logger = logger;
-         }
 
-        public IActionResult Index()
+            _movieService = movieService;
+        }
+        public async Task< IActionResult> Index()
         {
-            return View();
+            var movies = await _movieService.GetTopRevenueMovies();
+            var myType = movies.GetType();
+
+            /*
+             * 3 ways to send the data from Controller/action to View
+             * 1. *** Models (strongly typed models)
+             * 2. ViewBag
+             * 3. ViewData
+             */
+            ViewBag.MoviesCount = movies.Count();
+            return View(movies);
+     
         }
 
         public IActionResult Privacy()
         {
             return View();
         }
-        [HttpGet]
+   /*     [HttpGet]
         public IActionResult GetALLMovies()
         {
             var movieRepository = new MovieRepository();
@@ -38,7 +56,7 @@ namespace MovieProject.Controllers
 
             ViewBag.MoviesCount = movies.Count();
             return View(movies);
-        }
+        }*/
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

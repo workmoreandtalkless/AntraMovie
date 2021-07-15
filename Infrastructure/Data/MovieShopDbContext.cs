@@ -118,6 +118,7 @@ namespace Infrastructure.Data
         {
             builder.ToTable("MovieCrew");
             builder.HasKey(t => new { t.MovieId, t.CrewId, t.Department, t.Job });
+
             builder.HasOne(m => m.Movie).WithMany(m => m.Moviecrews).HasForeignKey(m => m.MovieId);
             builder.HasOne(m => m.Crew).WithMany(m => m.MovieCrews).HasForeignKey(m => m.CrewId);
 

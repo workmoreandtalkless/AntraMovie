@@ -5,48 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using ApplicationCore.Entities;
 using ApplicationCore.RepositoryInterfaces;
-
+using Microsoft.EntityFrameworkCore;
 using System.Data.SqlClient;
+using System.Linq.Expressions;
+using Infrastructure.Data;
 
 namespace Infrastructure.Repositories
 {
-    public class MovieRepository : IMovieRepository
+    public class MovieRepository : EfRepository<Movie>, IMovieRepository
     {
-      
-
-        public List<Movie> GetALLMovies()
+        public MovieRepository(MovieShopDbContext dbContext) : base(dbContext)
         {
-            throw new NotImplementedException();
         }
 
-        public Movie GetGenreById()
+        // who is calling this method?
+        public async Task<List<Movie>> GetHighest30GrossingMovies()
         {
-            throw new NotImplementedException();
-        }
-
-        public List<Movie> GetHighest30GrossingMovies()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Movie GetMovieById()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Movie GetReviewById()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Movie GetTopRatedMovie()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Movie GetTopRevenueMovie()
-        {
-            throw new NotImplementedException();
+            var topMovies = await _dbContext.Movies.OrderByDescending(m => m.Revenue).Take(30).ToListAsync();
+            return topMovies;
         }
     }
 }
