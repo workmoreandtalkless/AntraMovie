@@ -1,4 +1,4 @@
-﻿@model List<ApplicationCore.Models.MovieCardResponseModel>
+﻿@model ApplicationCore.Models.MovieCardResponseModel
 
 @{
     ViewData["Title"] = "Privacy Policy";
@@ -7,10 +7,9 @@
 
 <p>Use this page to detail your site's privacy policy.</p>
 
-@foreach(var movie in Model)
-{
+
+
     <div>
-        @movie.Id<br />
-        @movie.Title<br />
+        @Model.Id<br />
+        @Model.Title<br />
     </div>
-}
