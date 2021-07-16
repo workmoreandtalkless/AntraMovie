@@ -3,15 +3,18 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
- </div>
+<!--
 
-@foreach(var movie in Model)
-            {
-                <div>
-                    @movie.Id<br />
-                    @movie.Title<br />
-                </div>
-            }
+    Partial Views ... shared folder, _movieCard
+    
+    HomeController => 
+    Index action Method => 
+    List<MovieCard> home page view(Index) foreach 
+    => moviecard=> 
+    moviecard
+
+    purchased movies moviecard
+    favorite movies
+    movies by genre
+
+-->
