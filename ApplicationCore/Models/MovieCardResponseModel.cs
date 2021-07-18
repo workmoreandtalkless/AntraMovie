@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApplicationCore.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace ApplicationCore.Models
         public decimal Budget { get; set; }
 
         public List<GenreModel> GenreModels { get; set; }
+        public List<MovieCast> MovieCasts { get; set; }
     }
 
  

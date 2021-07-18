@@ -15,7 +15,9 @@ namespace ApplicationCore.ServiceInterfaces
         public Task<MovieDetailsResponseModel> GetMovieDetails(int Id);
 
         public Task<List<MovieCardResponseModel>> GetGenreMovieDetails(int Id);
-        public Task<List<MovieCardResponseModel>> GetCastMovieDetails(int Id);
+        
+        public Task<List<MovieCardResponseModel>> GetCardMovieDetails(int Id);
+        public Task<List<MovieCastResponseModel>> GetCastMovieDetails(int Id);
         //10 methods
         /*        public List<MovieCardResponseModel> GetALLMovies();
                 public MovieCardResponseModel GetMovieById();

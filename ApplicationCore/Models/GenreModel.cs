@@ -14,4 +14,6 @@ namespace ApplicationCore.Models
 
         public List<MovieCardResponseModel> movieCards { get; set; }
     }
+
+    
 }

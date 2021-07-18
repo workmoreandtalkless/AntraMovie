@@ -9,21 +9,26 @@ namespace MovieProject.Controllers
 {
     public class CastsController : Controller
     {
-        private readonly IMovieService _movieService;
+        /*private readonly IMovieService _movieService;*/
+        private readonly ICastService _castService;
 
-        public CastsController(IMovieService movieService)
+      /*  public CastsController(IMovieService movieService)
         {
             _movieService = movieService;
-        }
-        public async Task<IActionResult> CastDetails(int id)
+        }*/
+        public CastsController(ICastService castService)
         {
-            var movie = await _movieService.GetCastMovieDetails(id);
+            _castService = castService;
+        }
+   /*     public async Task<IActionResult> CastDetails(int id)
+        {
+            var movie = await _movieService.GetCardMovieDetails(id);
             return View(movie);
-        }  
+        }  */
           
         public async Task<IActionResult> GetMovieByCastId(int id)
         {
-            var movie = await _movieService.GetCastMovieDetails(id);
+            var movie = await _castService.GetCastMovieDetails(id);
             return View(movie);
         }
     }

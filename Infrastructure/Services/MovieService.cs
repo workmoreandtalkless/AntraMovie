@@ -127,7 +127,7 @@ namespace Infrastructure.Services
 
         }
 
-        public async Task<List<MovieCardResponseModel>> GetCastMovieDetails(int Id)
+        public async Task<List<MovieCardResponseModel>> GetCardMovieDetails(int Id)
         {
             var movies = await _movieRepository.GetMovieByCastId(Id);
             var movieCards = new List<MovieCardResponseModel>();
@@ -146,6 +146,15 @@ namespace Infrastructure.Services
             }
 
             return movieCards;
+        }
+
+
+
+
+
+        public Task<List<MovieCastResponseModel>> GetCastMovieDetails(int Id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

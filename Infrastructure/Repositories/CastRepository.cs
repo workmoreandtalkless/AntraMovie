@@ -1,6 +1,7 @@
 ﻿using ApplicationCore.Entities;
 using ApplicationCore.RepositoryInterfaces;
 using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,13 @@ namespace Infrastructure.Repositories
         {
             var entity = await _dbContext.Set<Cast>().FindAsync(id);
             return entity;
+        }
+
+        public async Task<Cast> GetCastByIdAsync(int id)
+        {
+            var cast = await _dbContext.Casts.Include(c => c.MovieCasts).ThenInclude(m=>m.Movie).FirstOrDefaultAsync();
+            Console.WriteLine();
+             return cast;
         }
     }
 }
