@@ -85,7 +85,7 @@ background-size: cover; ">
                 <ul class="list-group list-group-flush">
                     @foreach (var cast in Model.Casts)
                     {
-                      <a asp-controller="Casts" asp-action="CastDetails" class="dropdown-item" asp-route-id="@cast.Id">
+                      <a asp-controller="Casts" asp-action="GetMovieByCastId"  asp-route-id="@cast.Id">
                     
                         <li class="list-group-item" asp-area="" asp-controller="Cast" asp-action="index" asp-route-id="@cast.Id">
                             <table>

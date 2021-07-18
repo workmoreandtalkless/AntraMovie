@@ -87,5 +87,5 @@ C:\Users\guohu\source\repos\AntraMovie\MovieProject\obj\Debug\net5.0\Razor\Views
 C:\Users\guohu\source\repos\AntraMovie\MovieProject\obj\Debug\net5.0\Razor\Views\Shared\_MovieGenre.cshtml.g.cs
 C:\Users\guohu\source\repos\AntraMovie\MovieProject\obj\Debug\net5.0\Razor\Views\Genres\GetMovieByGenreId.cshtml.g.cs
 C:\Users\guohu\source\repos\AntraMovie\MovieProject\obj\Debug\net5.0\Razor\Views\Movies\GetMovieByGenreId.cshtml.g.cs
-C:\Users\guohu\source\repos\AntraMovie\MovieProject\obj\Debug\net5.0\Razor\Views\Casts\CastDetails.cshtml.g.cs
 C:\Users\guohu\source\repos\AntraMovie\MovieProject\obj\Debug\net5.0\Razor\Views\Shared\_MovieCast.cshtml.g.cs
+C:\Users\guohu\source\repos\AntraMovie\MovieProject\obj\Debug\net5.0\Razor\Views\Casts\GetMovieByCastId.cshtml.g.cs
