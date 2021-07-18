@@ -1,0 +1,138 @@
+﻿@model ApplicationCore.Models.MovieDetailsResponseModel
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MovieProject</title>
+
+    <script src ="https://kit.fontawesome.com/4311772a0e.js" crossorigin="anonymous"></script>
+
+</head>
+
+
+<div class="container">
+    <div class="row"  style="
+background-image: url( @Model.BackdropUrl );
+-webkit-filter: contrast(75%);
+background-size: cover; ">
+        <div class="col-5">
+            <div >
+            <img src="@Model.PosterUrl" class="rounded float-left" alt="@Model.Title">
+            </div>
+        </div>
+        <div class="col-5">
+            <h1>
+                @Model.Title
+            </h1>
+            <p>
+                @Model.Tagline
+            </p>
+            <span class="badge badge-pill badge-warning">@Model.RunTime</span>
+            <span class="badge badge-pill badge-warning">@Model.ReleaseDate</span>
+            <div>
+                @Model.Overview
+            </div>
+            
+            <span class="badge badge-pill badge-warning">@Model.Rating</span>
+            @foreach (var Genre in @Model.Genres)
+            {
+                <span class="badge badge-pill badge-warning">@Genre.Name</span>
+            }
+
+        </div>
+        <div class="col-2">
+            <div class="btn-group-vertical">
+                <button type="button" class="btn btn-secondary">Review</button>
+                <button type="button" class="btn btn-secondary">Trailer</button>
+                <button type="button" class="btn btn-secondary">Buy</button>
+                <button type="button" class="btn btn-secondary">WatchHome</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-5">
+            <label style="font:bold; font-size:medium">MOVIE FACTS</label>
+            <ul class="list-group">
+
+                <li class="list-group-item">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Release
+                    <span class="badge badge-pill badge-dark">@Model.ReleaseDate</span>
+                </li>
+                <li class="list-group-item">
+                    <i class="fa-solid fa-hourglass"></i>
+                    Run Time
+                    <span class="badge badge-pill badge-dark">@Model.RunTime</span>
+                </li>
+                <li class="list-group-item">
+                    <i class="fa-solid fa-money-bill-1"></i>
+                    Box Office
+                    <span class="badge badge-pill badge-dark">@Model.Revenue</span>
+                </li>
+                <li class="list-group-item">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    Budget
+                    <span class="badge badge-pill badge-dark">@Model.Budget</span>
+                </li>
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </ul>
+        </div>
+        <div class="col-7">
+            <div >
+
+                <label style ="font:bold; font-size:medium">CAST</label>
+                <ul class="list-group list-group-flush">
+                    @foreach (var cast in Model.Casts)
+                    {
+                      <a asp-controller="Casts" asp-action="CastDetails" class="dropdown-item" asp-route-id="@cast.Id">
+                    
+                        <li class="list-group-item" asp-area="" asp-controller="Cast" asp-action="index" asp-route-id="@cast.Id">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <img src="@cast.ProfilePath" class="rounded-circle" style="width:30px" />
+                                    </td>
+                                    <td>
+                                    <td width="200px" style="padding-left:-13%">
+                                        @cast.Name
+                                    </td>
+                                    <td>
+                                    <td width="400px" style="padding-left:-13%">
+                                        @cast.Character
+                                </td>
+                            </tr>
+                        </table>
+                        </li>
+                     </a>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@*<div>
+
+    <div class="card mb-2 shadow bg-light">
+
+
+        <div style="background-image:@Model.BackdropUrl;"></div>
+        <img src="@Model.BackdropUrl" class="img-fluid" alt="@Model.Title">
+
+
+
+
+    </div>
+    
+</div>*@
+
+<style>
+   
+</style>
+ 
+
+
+   

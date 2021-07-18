@@ -25,11 +25,45 @@ namespace Infrastructure.Repositories
             var topMovies = await _dbContext.Movies.OrderByDescending(m => m.Revenue).Take(30).ToListAsync();
             return topMovies;
         }
+        public override async Task<Movie> GetByIdAsync(int Id)
+        {
+            var movie = await _dbContext.Movies.Include(m => m.MovieCasts).ThenInclude(m => m.Cast)
+                .Include(m => m.MovieGenres).ThenInclude(m => m.Genre).FirstOrDefaultAsync(m=>m.Id == Id);
+
+            if(movie == null)
+            {
+                throw new Exception("No Movie Found with {Id}");
+            }
+
+            var movieRating = await _dbContext.Reviews.Where(m => m.MovieId == Id).AverageAsync(m=>m.Rating==null?0:m.Rating);
+
+            if (movieRating > 0)
+            {
+                movie.Rating = movieRating;
+            }
+
+            return movie;
+            
+        }
 
         public async Task<Movie> GetHighestGrossingMovies()
         {
             var topMovies = await _dbContext.Movies.OrderByDescending(m => m.Revenue).FirstAsync();
             return topMovies;
         }
+
+        public async Task<List<Movie>> GetMovieByGenreId(int Id)
+        {
+            var movie = await _dbContext.MovieGenres.Where(m => m.GenreId == Id).Select(g => g.Movie).ToListAsync();
+            return  movie;
+        }
+
+        public async Task<List<Movie>> GetMovieByCastId(int Id)
+        {
+            var movie = await _dbContext.MovieCasts.Where(m => m.CastId == Id).Select(g => g.Movie).ToListAsync();
+            return movie;
+        }
+
+  
     }
 }

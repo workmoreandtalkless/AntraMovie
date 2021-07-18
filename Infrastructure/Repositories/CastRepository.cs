@@ -13,6 +13,13 @@ namespace Infrastructure.Repositories
     {
         public CastRepository(MovieShopDbContext dbContext) : base(dbContext)
         {
+
+       
+        }
+        public override async Task<Cast> GetByIdAsync(int id)
+        {
+            var entity = await _dbContext.Set<Cast>().FindAsync(id);
+            return entity;
         }
     }
 }

@@ -12,5 +12,9 @@ namespace ApplicationCore.Models
         public string Title { get; set; }
         public string PosterUrl { get; set; }
         public decimal Budget { get; set; }
+
+        public List<GenreModel> GenreModels { get; set; }
     }
+
+ 
 }

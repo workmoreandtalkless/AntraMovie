@@ -1,0 +1,16 @@
+﻿@using MovieProject.Views.Shared
+@model List<ApplicationCore.Models.MovieCardResponseModel>
+
+
+    div class="rounded" style="width : 90%">
+    <div class="container-fluid bg-light">
+        <div class="row">
+            @foreach (var movie in Model)
+            {
+            <div class="col-2">
+                <partial name="_MovieCard" model="movie" />
+            </div>
+            }
+        </div>
+    </div>
+    </div>

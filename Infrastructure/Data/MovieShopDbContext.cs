@@ -47,10 +47,18 @@ namespace Infrastructure.Data
             modelBuilder.Entity<Purchase>(ConfigurePurchase);
            // modelBuilder.Entity<Role>(ConfigurePurchase);
             modelBuilder.Entity<UserRole>(ConfigureUserRole);
+            modelBuilder.Entity<Genre>(ConfigureGenre);
 
 
         }
 
+        private void ConfigureGenre(EntityTypeBuilder<Genre> builder)
+        {
+            builder.ToTable("Genre");
+            builder.HasKey(m => m.ID);
+            builder.Property(m => m.Name).HasMaxLength(64).IsRequired();
+
+        }
         private void ConfigureUserRole(EntityTypeBuilder<UserRole> builder)
         {
             builder.ToTable("UserRole");

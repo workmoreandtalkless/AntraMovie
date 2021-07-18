@@ -8,14 +8,13 @@ using System.ComponentModel.DataAnnotations.Schema;
     
 namespace ApplicationCore.Entities
 {
-    [Table("Genre")]
+    
     public class Genre
     {
 
         public int ID { get; set; }
 
-        [MaxLength(24)]
-        [Required]
+  
         public string Name { get; set; }
 
         public ICollection<MovieGenre> movieGenres { get; set; }

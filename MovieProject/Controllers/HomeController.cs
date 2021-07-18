@@ -27,9 +27,10 @@ namespace MovieProject.Controllers
             }*/
         public HomeController(IMovieService movieService)
         {
-
             _movieService = movieService;
         }
+
+    
         public async Task< IActionResult> Index()
         {
             var movies = await _movieService.GetTopRevenueMovies();
@@ -43,7 +44,6 @@ namespace MovieProject.Controllers
              */
             ViewBag.MoviesCount = movies.Count();
             return View(movies);
-     
         }
 
         public async Task<IActionResult>  Privacy()

@@ -11,12 +11,17 @@ namespace ApplicationCore.ServiceInterfaces
       public  Task<List<MovieCardResponseModel>>GetTopRevenueMovies();
 
       public Task<MovieCardResponseModel> GetMostRevenueMovies();
-      //10 methods
-/*        public List<MovieCardResponseModel> GetALLMovies();
-        public MovieCardResponseModel GetMovieById();
-        public MovieCardResponseModel GetTopRatedMovie();
-        public MovieCardResponseModel GetTopRevenueMovie();
-        public MovieCardResponseModel GetGenreById();
-        public MovieCardResponseModel GetReviewById();*/
+
+        public Task<MovieDetailsResponseModel> GetMovieDetails(int Id);
+
+        public Task<List<MovieCardResponseModel>> GetGenreMovieDetails(int Id);
+        public Task<List<MovieCardResponseModel>> GetCastMovieDetails(int Id);
+        //10 methods
+        /*        public List<MovieCardResponseModel> GetALLMovies();
+                public MovieCardResponseModel GetMovieById();
+                public MovieCardResponseModel GetTopRatedMovie();
+                public MovieCardResponseModel GetTopRevenueMovie();
+                public MovieCardResponseModel GetGenreById();
+                public MovieCardResponseModel GetReviewById();*/
     }
 }
