@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MovieProject</title>
 
-    <script src ="https://kit.fontawesome.com/4311772a0e.js" crossorigin="anonymous"></script>
+    <script src ="https://kit.fontawesome.com/2cb297ca9f.js" crossorigin="anonymous"></script>
+
 
 </head>
 
@@ -67,26 +68,35 @@ background-size: cover; ">
             <ul class="list-group">
 
                 <li class="list-group-item">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    Release
-                    <span class="badge badge-pill badge-dark">@Model.ReleaseDate</span>
+                    @* <i class="fa-solid fa-calendar-days"></i>*@
+                    <i class="far fa-calendar-alt"></i>
+
+
+                    <span class="badge badge-pill badge-dark"> Release&nbsp; @Convert.ToDateTime(@Model.ReleaseDate).ToString("M/dd/yyyy")</span>
                 </li>
                 <li class="list-group-item">
-                    <i class="fa-solid fa-hourglass"></i>
-                    Run Time
-                    <span class="badge badge-pill badge-dark">@Model.RunTime</span>
+                    @*<i class="fa-solid fa-hourglass"></i>*@
+                    <i class="fas fa-hourglass-half"></i>
+                    <span class="badge badge-pill badge-dark"> Run&nbsp;Time @Model.RunTime m </span>
+
+
                 </li>
                 <li class="list-group-item">
-                    <i class="fa-solid fa-money-bill-1"></i>
-                    Box Office
-                    <span class="badge badge-pill badge-dark">@Model.Revenue</span>
+                    @*<i class="fa-solid fa-money-bill-1"></i>*@
+                    <i class="far fa-money-bill-alt"></i>
+                    <span class="badge badge-pill badge-dark"> Box&nbsp;Office $ $@Convert.ToInt64(@Model.Revenue)</span>
                 </li>
                 <li class="list-group-item">
-                    <i class="fa-solid fa-dollar-sign"></i>
-                    Budget
-                    <span class="badge badge-pill badge-dark">@Model.Budget</span>
+                    @* <i class="fa-solid fa-dollar-sign"></i>*@
+                    <i class="fas fa-dollar-sign"></i>
+                    <span class="badge badge-pill badge-dark"> Budget $ $@Convert.ToInt64(@Model.Budget) </span>
                 </li>
-                <i class="fa-solid fa-right-from-bracket"></i>
+
+                <li class="list-group-item">
+                    
+                <i class="fab fa-imdb"></i> &nbsp;
+                <i class="fas fa-share-square"></i>
+                </li>
             </ul>
         </div>
         <div class="col-7">
