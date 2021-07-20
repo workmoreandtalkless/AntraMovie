@@ -28,13 +28,12 @@ namespace Infrastructure.Repositories
             {
                 throw new Exception("without Movie to buy");
             }
-            return purchases;
+            return (IEnumerable<Purchase>)purchases; // should be dont need use this explictly convert
         }
 
-        public override async Task<Movie> GetByIdAsync(int Id)
+/*        public override async Task<Purchase> GetByIdAsync(int Id)
         {
-            var movie = await _dbContext.Movies.Include(m => m.MovieCasts).ThenInclude(m => m.Cast)
-                .Include(m => m.MovieGenres).ThenInclude(m => m.Genre).FirstOrDefaultAsync(m => m.Id == Id);
+            var movie = await _dbContext.Purchases.Include(m => m.Movie).FirstOrDefaultAsync(m => m.Id == Id);
 
             if (movie == null)
             {
@@ -50,6 +49,6 @@ namespace Infrastructure.Repositories
 
             return movie;
 
-        }
+        }*/
     }
 }
