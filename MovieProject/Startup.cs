@@ -14,6 +14,8 @@ using ApplicationCore.ServiceInterfaces;
 using Infrastructure.Services;
 using ApplicationCore.RepositoryInterfaces;
 using Infrastructure.Repositories;
+using ApplicationCore.Entities;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace MovieProject
 {
@@ -37,9 +39,23 @@ namespace MovieProject
             services.AddScoped<IMovieService, MovieService>();
             services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddScoped<IGenreRepository, GenreRepository>();
+            services.AddScoped<IAsyncRepository<Genre>, EfRepository<Genre>>();// should reconsider
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<ICastRepository, CastRepository>();
             services.AddScoped<ICastService, CastService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
+         
+            services.AddScoped<ICurrentUser, CurrentUser>();
+            services.AddHttpContextAccessor();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(
+                    options =>
+                    {
+                        options.Cookie.Name = "MovieShopAuth";
+                        options.ExpireTimeSpan = TimeSpan.FromHours(2);
+                        options.LoginPath = "/Account/Login"; // what's this mean?
+                    }
+                );
         
         }
 
@@ -60,7 +76,7 @@ namespace MovieProject
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -11,6 +11,7 @@ namespace ApplicationCore.Entities
     {
         public int Id { get; set; }
         public int userId { get; set; }
+        public int UserId { get; set; }
         public System.Guid PurchaseNumber { get; set; }
         public decimal TotalPrice { get; set; }
         public DateTime PurchaseDateTime { get; set; }

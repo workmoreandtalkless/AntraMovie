@@ -19,7 +19,9 @@ namespace Infrastructure.Repositories
         }
         public virtual async Task<T> AddAsync(T entity)
         {
-            throw new NotImplementedException();
+            await _dbContext.Set<T>().AddAsync(entity);
+            await _dbContext.SaveChangesAsync();// using migration?
+            return entity;
         }
 
         public virtual async Task<T> DeleteAsync(T entity)
