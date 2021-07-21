@@ -156,5 +156,19 @@ namespace Infrastructure.Services
         {
             throw new NotImplementedException();
         }
+
+        public async Task<MovieCardResponseModel> GetTopRatedMovies()
+        {
+            var movie = await _movieRepository.GetTopRatedMovie();
+            var moviecard = new MovieCardResponseModel
+            {
+                Id = movie.Id,
+                Budget = movie.Budget.GetValueOrDefault(),
+                Title = movie.Title,
+                PosterUrl = movie.PosterUrl,
+
+            };
+            return moviecard;
+        }
     }
 }

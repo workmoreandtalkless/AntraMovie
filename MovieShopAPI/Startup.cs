@@ -57,6 +57,7 @@ namespace MovieShopAPI
             services.AddScoped<IBuyRepository, BuyRepository>();
 
             services.AddScoped<ICurrentUser, CurrentUser>();
+            services.AddHttpContextAccessor(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,9 +66,9 @@ namespace MovieShopAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MovieShopAPI v1"));
-            }
 
             app.UseHttpsRedirection();
 

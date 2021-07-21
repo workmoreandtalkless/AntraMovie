@@ -18,7 +18,11 @@ namespace Infrastructure.Repositories
         {
             
         }
-
+        public async Task<List<Movie>> ListAllAsync()
+        {
+            var movies = await _dbContext.Movies.OrderByDescending(m => m.Revenue).ToListAsync();
+            return movies;
+        }
         // who is calling this method?
         public async Task<List<Movie>> GetHighest30GrossingMovies()
         {
@@ -64,6 +68,34 @@ namespace Infrastructure.Repositories
             return movie;
         }
 
-  
+        // for api
+        public async Task<Movie> GetTopRatedMovie()
+        {
+            var movies = await _dbContext.Movies.ToListAsync();
+            foreach(var movie in movies)
+            {
+                var id = movie.Id;
+                var movieRating = await _dbContext.Reviews.Where(m => m.MovieId == id).AverageAsync(m => m.Rating == null ? 0 : m.Rating);
+
+                if (movieRating > 0)
+                {
+                    movie.Rating = movieRating;
+                }
+                movie.Rating = 0;
+
+            }
+            // var movie = await movies.OrderByDescending(r => r.Rating);
+            var Topmovie = new Movie();
+            Topmovie.Rating = 0;
+            foreach(var m in movies)
+            {
+                if(m.Rating > Topmovie.Rating)
+                {
+                    Topmovie = m;
+                }
+            }
+
+            return Topmovie;
+        }
     }
 }

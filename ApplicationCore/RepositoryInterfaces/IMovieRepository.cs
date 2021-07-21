@@ -15,13 +15,10 @@ namespace ApplicationCore.RepositoryInterfaces
         public Task<Movie> GetHighestGrossingMovies();
 
         public Task<List<Movie>> GetMovieByCastId(int Id);
-        /*        //10 methods
-                public List<Movie> GetALLMovies();
-                public Movie GetMovieById();
-                public Movie GetTopRatedMovie();
-                public Movie GetTopRevenueMovie();
-                public Movie GetGenreById();
-                public Movie GetReviewById();*/
+       
+        // for api
+        public Task<Movie> GetTopRatedMovie();
+
 
     }
 }

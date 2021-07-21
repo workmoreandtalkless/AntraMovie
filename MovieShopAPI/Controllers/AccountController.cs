@@ -20,8 +20,8 @@ namespace MovieShopAPI.Controllers
             _userService = userService;
         }
 
-
-        public async Task<IActionResult> RegisterUser( UserRegisterRequestModel model)
+        [HttpPost]
+        public async Task<IActionResult> RegisterUser([FromBody] UserRegisterRequestModel model)
         {
             var createUser = await _userService.RegisterUser(model);
             //send the url for newly created user also
