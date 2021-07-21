@@ -45,6 +45,8 @@ namespace MovieProject
             services.AddScoped<ICastService, CastService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IBuyRepository, BuyRepository>();
+            services.AddScoped<IBuyService, BuyService>();
          
             services.AddScoped<ICurrentUser, CurrentUser>();
             services.AddHttpContextAccessor();

@@ -1,12 +1,13 @@
 ﻿@using ApplicationCore.ServiceInterfaces
 @inject ICurrentUser _currentUser
+@inject IBuyService _buyService
 
 @if (User.Identity.IsAuthenticated) 
 {
 <div class="dropdown show">
-    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        @*<i class="fas fa-user fa-2x"></i> &nbsp;*@
-        <strong asp-action="ViewUserProfile" asp-controller="User">@_currentUser.FullName</strong>
+    <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-user fa-2x"></i> &nbsp;
+        <strong >@_currentUser.FullName</strong>
     </a>
 
     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -18,10 +19,9 @@
             </div>
         </a>*@
         
-        <a class="dropdown-item" asp-action="PurchasedMovies" asp-controller="User" asp-route-id="@_currentUser.UserId">My Purchased Movies</a>
-        <a class="dropdown-item">Edit Profile</a>
-        
-     
+        <a class="dropdown-item" asp-action="PurchasedMovies" asp-controller="User" asp-route-uid="@_currentUser.UserId">My Purchased Movies(@await _buyService.GetAllPurchasedMoviesByUserId(_currentUser.UserId)) </a>
+        <a class="dropdown-item" asp-action="ViewUserProfile" asp-controller="User" >Edit Profile</a>
+            
         <a class="dropdown-item" asp-action="Logout" asp-controller="Account">Logout</a>
     </div>
 </div>

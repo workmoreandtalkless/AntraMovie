@@ -43,22 +43,22 @@ background-size: cover; ">
         </div>
         <div class="col-2">
             <div class="btn-group-vertical">
-                <div class="d-grid gap-2 col-5 mx-auto">
-                    <div class="row">
-                        <button type="button" class="btn btn-primary btn-light" style="margin-top:10%;width:300px"><i class="fas fa-edit"></i>&nbsp;REVIEW</button>
-                    </div>
-                    <div class="row">
-                        <button type="button" class="btn btn-primary btn-light" style="margin-top:10%;width:300px"><i class="fas fa-play"></i>&nbsp;TRAILER</button>
-                    </div>
-                    <div class="row">
-                        <button type="button" class="btn btn-primary btn-light" style="margin-top:10%;width:300px" 
-                                asp-controller="UserController" asp-action="BuyMovie" asp-route-mid ="@Model.Id"
-                                >BUY @Model.Price</button>
-                    </div>
-                    <div class="row">
-                        <button type="button" class="btn btn-primary btn-light" style="margin-top:10%;width:300px">WATCH MOVIE</button>
-                    </div>
-                </div>
+                <a type="button" class="btn btn-outline-light mt-3"><i class="fas fa-edit"></i>REVIEW</a>
+                <a type="button" class="btn btn-outline-light mt-3"><i class="fas fa-play"></i>TRAILER</a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a type="button" class="btn btn-outline-light mt-3"
+                       asp-action="BuyMovie" asp-controller="User" asp-route-mid="@Model.Id">
+                        <span>BUY @Model.Price</span>
+                    </a>
+                }
+                else
+                {
+                    <a type="button" class="btn btn-outline-light mt-3 disabled"
+                       asp-action="BuyMovie" asp-controller="User" asp-route-mid="@Model.Id">BUY @Model.Price</a>
+                }
+                <a type="button" class="btn btn-outline-light mt-3 disabled">WATCH MOVIE</a>
+            </div>
             </div>
         </div>
         </div>

@@ -68,7 +68,7 @@ namespace Infrastructure.Data
         {
             builder.ToTable("Purchase");
             builder.HasKey(m => m.Id);
-            builder.Property(m => m.userId).IsRequired();
+            builder.Property(m => m.UserId).IsRequired();
             builder.Property(m => m.PurchaseNumber).IsRequired();
             builder.Property(m => m.TotalPrice).IsRequired();
            

@@ -94,3 +94,5 @@ C:\Users\guohu\source\repos\AntraMovie\MovieProject\obj\Debug\net5.0\Razor\Views
 C:\Users\guohu\source\repos\AntraMovie\MovieProject\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\guohu\source\repos\AntraMovie\MovieProject\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\guohu\source\repos\AntraMovie\MovieProject\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\guohu\source\repos\AntraMovie\MovieProject\obj\Debug\net5.0\Razor\Views\User\BuyMovie.cshtml.g.cs
+C:\Users\guohu\source\repos\AntraMovie\MovieProject\obj\Debug\net5.0\Razor\Views\User\PurchasedMovies.cshtml.g.cs

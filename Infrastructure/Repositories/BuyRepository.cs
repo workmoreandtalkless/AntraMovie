@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Entities;
+using ApplicationCore.Models;
 using ApplicationCore.RepositoryInterfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,17 @@ namespace Infrastructure.Repositories
 
         }
 
+        public async void AddPurchase(Purchase purchase)
+        {
+            await AddAsync(purchase);
+        }
+
+        public async Task<IEnumerable<Purchase>> GetPurchasesByuserId(int uId)
+        {
+            var purchases = await _dbContext.Purchases.Where(p => p.UserId == uId).ToListAsync();
+            
+            return purchases;
+        }
 
         public async override Task<IEnumerable<Purchase>> ListAsync(Expression<Func<Purchase,bool>> filer)
         {
@@ -31,24 +43,26 @@ namespace Infrastructure.Repositories
             return (IEnumerable<Purchase>)purchases; // should be dont need use this explictly convert
         }
 
-/*        public override async Task<Purchase> GetByIdAsync(int Id)
-        {
-            var movie = await _dbContext.Purchases.Include(m => m.Movie).FirstOrDefaultAsync(m => m.Id == Id);
+     
 
-            if (movie == null)
-            {
-                throw new Exception("No Movie Found with {Id}");
-            }
+        /*        public override async Task<Purchase> GetByIdAsync(int Id)
+                {
+                    var movie = await _dbContext.Purchases.Include(m => m.Movie).FirstOrDefaultAsync(m => m.Id == Id);
 
-            var movieRating = await _dbContext.Reviews.Where(m => m.MovieId == Id).AverageAsync(m => m.Rating == null ? 0 : m.Rating);
+                    if (movie == null)
+                    {
+                        throw new Exception("No Movie Found with {Id}");
+                    }
 
-            if (movieRating > 0)
-            {
-                movie.Rating = movieRating;
-            }
+                    var movieRating = await _dbContext.Reviews.Where(m => m.MovieId == Id).AverageAsync(m => m.Rating == null ? 0 : m.Rating);
 
-            return movie;
+                    if (movieRating > 0)
+                    {
+                        movie.Rating = movieRating;
+                    }
 
-        }*/
+                    return movie;
+
+                }*/
     }
 }

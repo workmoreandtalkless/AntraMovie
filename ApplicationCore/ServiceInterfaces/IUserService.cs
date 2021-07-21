@@ -14,5 +14,7 @@ namespace ApplicationCore.ServiceInterfaces
 
         Task<UserLoginResponseModel> Login(string email, string password);
 
+        Task<UserResponseModel> GetUserById(int id);
+
     }
 }
