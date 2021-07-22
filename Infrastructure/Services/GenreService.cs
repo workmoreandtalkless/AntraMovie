@@ -30,6 +30,19 @@ namespace Infrastructure.Services
 
         }
 
+        public async Task<GenreModel> GetGenreByGenreId(int gid)
+        {
+            var genre = await _genreRepository.GetByIdAsync(gid);
+            var genreModel = new GenreModel
+            {
+                Id = genre.ID,
+                Name = genre.Name
+            };
+
+            return genreModel;
+
+        }
+
         // var genreModel = await genresModel.Orderby(g => g.Name).ToList(); // don't have ToListAsync.
 
     }

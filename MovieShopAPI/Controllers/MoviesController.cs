@@ -15,6 +15,7 @@ namespace MovieShopAPI.Controllers
     {
         private readonly IMovieService _movieService;
         private readonly IMovieRepository _movieRepository;
+        private readonly IGenreService _genreRepository;
         public MoviesController(IMovieService movieService , IMovieRepository movieRepository)
         {
             _movieService = movieService;
@@ -74,6 +75,19 @@ namespace MovieShopAPI.Controllers
             }
             // in .Net Core 3.1 > System.Text.Json
             return Ok(movies);
+        }
+
+        [HttpGet]
+        [Route("genre/{genreId:int}")]
+        public async Task<IActionResult> GetGenreByGenreId(int gid)
+        {
+            var genre = await _genreRepository.GetGenreByGenreId(gid);
+            if (genre==null)
+            {
+                return NotFound("no movie found");
+            }
+
+            return Ok(genre);
         }
     }
 }
