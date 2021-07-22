@@ -47,6 +47,7 @@ namespace MovieShopAPI
             });
             services.AddScoped<IMovieService, MovieService>();
             services.AddScoped<IMovieRepository, MovieRepository>();
+            services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<IGenreRepository, GenreRepository>();
             services.AddScoped<IAsyncRepository<Genre>, EfRepository<Genre>>();// should reconsider
             services.AddScoped<IGenreService, GenreService>();
@@ -54,6 +55,7 @@ namespace MovieShopAPI
             services.AddScoped<ICastService, CastService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IBuyService, BuyService>();
             services.AddScoped<IBuyRepository, BuyRepository>();
 
             services.AddScoped<ICurrentUser, CurrentUser>();

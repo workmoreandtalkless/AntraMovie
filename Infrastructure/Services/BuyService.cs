@@ -15,17 +15,33 @@ namespace Infrastructure.Services
         private readonly IBuyRepository _buyRepository;
         private readonly IMovieRepository _movieRepository;
 
+
         public BuyService(IBuyRepository buyRepository, IMovieRepository movieRepository)
         {
             _buyRepository = buyRepository;
             _movieRepository = movieRepository;
         }
 
-       /* public Task AddPurchase(Purchase purchase)
+        public async Task<UserBuyMovieModel> AddMovie(UserBuyMovieModel model)
         {
-            _buyRepository.AddAsync(purchase);
-            return 
-        }*/
+            var entity = new Purchase
+            {
+                PurchaseDateTime = model.PurchaseDateTime,
+                MovieId = model.MovieId,
+                PurchaseNumber = model.PurchaseNumber,
+                TotalPrice = model.TotalPrice,
+                UserId = model.UserId
+            };
+            await _buyRepository.AddAsync(entity);
+
+            return model;
+        }
+
+        /* public Task AddPurchase(Purchase purchase)
+         {
+             _buyRepository.AddAsync(purchase);
+             return 
+         }*/
 
         public async Task<int> GetAllPurchasedMoviesByUserId(int UserId)
         {

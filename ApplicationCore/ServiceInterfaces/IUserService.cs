@@ -16,5 +16,7 @@ namespace ApplicationCore.ServiceInterfaces
 
         Task<UserResponseModel> GetUserById(int id);
 
+        Task<List<UserResponseModel>> GetAllUser();
+
     }
 }

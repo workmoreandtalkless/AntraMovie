@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using ApplicationCore.Entities;
@@ -18,6 +19,28 @@ namespace Infrastructure.Services
         public UserService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
+        }
+
+        public async Task<List<UserResponseModel>> GetAllUser()
+        {
+            var users = await _userRepository.ListAllAsync();
+
+            var userResponseModels = new List<UserResponseModel>();
+            foreach(var user in users)
+            {
+                userResponseModels.Add(
+                  new UserResponseModel
+                  {
+                      Id = user.Id,
+                      Email = user.Email,
+                      FirstName = user.FirstName,
+                      LastName = user.LastName,
+                      DateOfBirth = user.DateOfBirth
+                  });
+
+            }
+
+            return userResponseModels;
         }
 
         public async Task<UserResponseModel> GetUserById(int id)

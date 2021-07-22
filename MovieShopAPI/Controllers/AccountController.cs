@@ -20,16 +20,6 @@ namespace MovieShopAPI.Controllers
             _userService = userService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> RegisterUser([FromBody] UserRegisterRequestModel model)
-        {
-            var createUser = await _userService.RegisterUser(model);
-            //send the url for newly created user also
-            //5000
-            return CreatedAtRoute("GetUser", new { id = createUser.Id }, createUser );
-
-        }
-
         [HttpGet]
         [Route("{id:int}", Name = "GetUser")]
         public async Task<IActionResult> GetUserById(int id)
@@ -42,6 +32,44 @@ namespace MovieShopAPI.Controllers
             }
 
             return Ok(user);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RegisterUser([FromBody] UserRegisterRequestModel model)
+        {
+            var createUser = await _userService.RegisterUser(model);
+            //send the url for newly created user also
+            //5000
+            return CreatedAtRoute("GetUser", new { id = createUser.Id }, createUser );
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllUser()
+        {
+            var users = await _userService.GetAllUser();
+            if (users == null)
+            {
+                return NotFound($"User does not exists");
+            }
+
+            return Ok(users);
+        }
+
+        [HttpPost]
+        [Route("login", Name="Login")]
+        public async Task<IActionResult> Login([FromBody] UserLoginRequestModel model)
+
+        {
+            var email = model.Email;
+            var password = model.Password;
+            var userLogin = await _userService.Login(email, password);
+
+            if(userLogin == null)
+            {
+                return NotFound($"User does not exists");
+            }
+            return Ok(userLogin);
         }
 
     }

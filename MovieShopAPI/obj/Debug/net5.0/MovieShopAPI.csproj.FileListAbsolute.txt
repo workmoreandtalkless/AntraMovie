@@ -71,3 +71,6 @@ C:\Users\guohu\source\repos\AntraMovie\MovieShopAPI\obj\Debug\net5.0\scopedcss\b
 C:\Users\guohu\source\repos\AntraMovie\MovieShopAPI\obj\Debug\net5.0\MovieShopAPI.RazorTargetAssemblyInfo.cache
 C:\Users\guohu\source\repos\AntraMovie\MovieShopAPI\obj\Debug\net5.0\MovieShopAPI.csproj.CopyComplete
 C:\Users\guohu\source\repos\AntraMovie\MovieShopAPI\obj\Debug\net5.0\MovieShopAPI.genruntimeconfig.cache
+C:\Users\guohu\source\repos\AntraMovie\MovieShopAPI\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\guohu\source\repos\AntraMovie\MovieShopAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\guohu\source\repos\AntraMovie\MovieShopAPI\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

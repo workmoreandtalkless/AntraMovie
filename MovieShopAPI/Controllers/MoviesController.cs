@@ -14,6 +14,7 @@ namespace MovieShopAPI.Controllers
     public class MoviesController : ControllerBase
     {
         private readonly IMovieService _movieService;
+        private readonly IReviewService _reviewService;
         private readonly IMovieRepository _movieRepository;
         private readonly IGenreService _genreRepository;
         public MoviesController(IMovieService movieService , IMovieRepository movieRepository)
@@ -88,6 +89,20 @@ namespace MovieShopAPI.Controllers
             }
 
             return Ok(genre);
+        }
+
+        [HttpGet]
+        [Route("{Id:int}/reviews")]
+        public async Task<IActionResult> GetReviewsbyMovieId(int id)
+        {
+            var review = _reviewService.GetReviewsbyMovieId(id);
+
+            if (review == null)
+            {
+                return NotFound("no movie found");
+            }
+
+            return Ok(review);
         }
     }
 }
