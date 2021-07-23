@@ -17,10 +17,11 @@ namespace MovieShopAPI.Controllers
         private readonly IReviewService _reviewService;
         private readonly IMovieRepository _movieRepository;
         private readonly IGenreService _genreRepository;
-        public MoviesController(IMovieService movieService , IMovieRepository movieRepository)
+        public MoviesController(IMovieService movieService , IMovieRepository movieRepository, IGenreService genreRepository)
         {
             _movieService = movieService;
             _movieRepository = movieRepository;
+            _genreRepository = genreRepository;
         }
 
         [HttpGet]

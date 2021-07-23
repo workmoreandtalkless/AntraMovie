@@ -17,7 +17,7 @@ namespace ApplicationCore.RepositoryInterfaces
         public Task<List<Movie>> GetMovieByCastId(int Id);
        
         // for api
-        public Task<Movie> GetTopRatedMovie();
+        public Task<List<Movie>> GetTopRatedMovie();
 
 
     }

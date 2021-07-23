@@ -20,7 +20,28 @@ namespace Infrastructure.Services
         {
             _userRepository = userRepository;
         }
+        public async Task<List<UserResponseModel>> GetAllUserAPI()
+        {
+            var users = await _userRepository.GetAllUserAPI();
 
+            var userResponseModels = new List<UserResponseModel>();
+            foreach (var user in users)
+            {
+                userResponseModels.Add(
+                  new UserResponseModel
+                  {
+                      Id = user.Id,
+                      Email = user.Email,
+                      FirstName = user.FirstName,
+                      LastName = user.LastName,
+                      DateOfBirth = user.DateOfBirth
+                  });
+
+            }
+
+            return userResponseModels;
+
+        }
         public async Task<List<UserResponseModel>> GetAllUser()
         {
             var users = await _userRepository.ListAllAsync();

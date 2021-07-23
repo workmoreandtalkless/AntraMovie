@@ -69,33 +69,14 @@ namespace Infrastructure.Repositories
         }
 
         // for api
-        public async Task<Movie> GetTopRatedMovie()
+        public async Task<List<Movie>> GetTopRatedMovie()
         {
-            var movies = await _dbContext.Movies.ToListAsync();
-            foreach(var movie in movies)
-            {
-                var id = movie.Id;
-                var movieRating = await _dbContext.Reviews.Where(m => m.MovieId == id).AverageAsync(m => m.Rating == null ? 0 : m.Rating);
-
-                if (movieRating > 0)
-                {
-                    movie.Rating = movieRating;
-                }
-                movie.Rating = 0;
-
-            }
+            var movies = await _dbContext.Movies.Include(m => m.Reviews).OrderByDescending(m => m.Rating).Take(30).ToListAsync();
+            
             // var movie = await movies.OrderByDescending(r => r.Rating);
-            var Topmovie = new Movie();
-            Topmovie.Rating = 0;
-            foreach(var m in movies)
-            {
-                if(m.Rating > Topmovie.Rating)
-                {
-                    Topmovie = m;
-                }
-            }
+            
 
-            return Topmovie;
+            return movies;
         }
     }
 }

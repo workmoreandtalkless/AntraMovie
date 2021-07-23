@@ -20,10 +20,11 @@ namespace Infrastructure.Repositories
 
         public override async Task<IEnumerable<Genre>> ListAllAsync()
         {
-            
 
-            var genres = await _dbContext.Genres.OrderBy(g => g.Name).ToListAsync();
-               
+
+            var genres = await _dbContext.Genres.Include(g => g.movieGenres).ThenInclude(g => g.Movie).ToListAsync();
+            /*.Include(g => g.movieGenres).ThenInclude(mg => mg.Movie)
+             .OrderBy(g => g.Name)*/
             return genres;
         }
 

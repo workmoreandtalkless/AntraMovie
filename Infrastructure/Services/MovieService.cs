@@ -177,15 +177,20 @@ namespace Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public async Task<MovieCardResponseModel> GetTopRatedMovies()
+        public async Task<List<MovieCardResponseModel>> GetTopRatedMovies()
         {
-            var movie = await _movieRepository.GetTopRatedMovie();
-            var moviecard = new MovieCardResponseModel
+            var movies = await _movieRepository.GetTopRatedMovie();
+            var moviecard = new List<MovieCardResponseModel>();
+            foreach(var movie in movies)
             {
-                Id = movie.Id,
-                Budget = movie.Budget.GetValueOrDefault(),
-                Title = movie.Title,
-                PosterUrl = movie.PosterUrl,
+                moviecard.Add(new MovieCardResponseModel
+                {
+
+                    Id = movie.Id,
+                    Budget = movie.Budget.GetValueOrDefault(),
+                    Title = movie.Title,
+                    PosterUrl = movie.PosterUrl,
+                });
 
             };
             return moviecard;

@@ -32,7 +32,7 @@ namespace Infrastructure.Services
 
         public async Task<GenreModel> GetGenreByGenreId(int gid)
         {
-            var genre = await _genreRepository.GetByIdAsync(gid);
+            var genre = await _genreRepository.GetByIdAsync(Convert.ToInt32(gid));
             var genreModel = new GenreModel
             {
                 Id = genre.ID,

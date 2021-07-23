@@ -34,7 +34,10 @@ namespace MovieShopAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+/*            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);*/
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MovieShopAPI", Version = "v1" });
@@ -49,7 +52,7 @@ namespace MovieShopAPI
             services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<IGenreRepository, GenreRepository>();
-            services.AddScoped<IAsyncRepository<Genre>, EfRepository<Genre>>();// should reconsider
+            //services.AddScoped<IAsyncRepository<Genre>, EfRepository<Genre>>();// should reconsider
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<ICastRepository, CastRepository>();
             services.AddScoped<ICastService, CastService>();

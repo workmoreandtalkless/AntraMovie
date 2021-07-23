@@ -18,5 +18,7 @@ namespace ApplicationCore.ServiceInterfaces
 
         Task<List<UserResponseModel>> GetAllUser();
 
+        Task<List<UserResponseModel>> GetAllUserAPI();
+
     }
 }

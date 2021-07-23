@@ -26,28 +26,29 @@ namespace MovieShopAPI.Controllers
         }
         [HttpPost]
         [Route("movie")]
-        public async Task<IActionResult> AddMovie([FromBody] UserBuyMovieModel model)
+        public async Task<IActionResult> AddMovie([FromBody] APIUserBuyMovieModel model)
         {
-            var purchase = await _buyService.AddMovie(model);
-
-            return CreatedAtRoute("GetMovie", new { id = purchase.Id }, purchase);
+            var purchase = await _buyService.AddMovieAPI(model);
+            return Ok(purchase);
+           /* return CreatedAtRoute("GetMovie", new { id = purchase.Id }, purchase);*/
         }
 
         [HttpPut("movie")]
-        public async Task<IActionResult> upMovie([FromBody] UserBuyMovieModel model)
+        public async Task<IActionResult> upMovie([FromBody] APIUserBuyMovieModel model)
         {
-            var purchase = await _buyService.AddMovie(model);
-            return CreatedAtRoute("GetMovie", new { id = purchase.Id }, purchase);
+            var purchase = await _buyService.updateMovieAPI(model);
+            return Ok(purchase);
+            /*return CreatedAtRoute("GetMovie", new { id = purchase.Id }, purchase);*/
         }
 
 
         [HttpGet]
-        [Route("purchases", Name = "GetMovie")]
+        [Route("purchases")]
         public async Task<IActionResult> GetPurchase()
         {
-            int id = _currentUser.UserId;
+            var purchase = _buyService.GetAll();
 
-            var purchase = _buyService.GetPurchasedMoviesbyUserId(id);
+           
 
             return Ok(purchase);
 

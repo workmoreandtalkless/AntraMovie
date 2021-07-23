@@ -47,7 +47,7 @@ namespace MovieShopAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllUser()
         {
-            var users = await _userService.GetAllUser();
+            var users = await _userService.GetAllUserAPI();
             if (users == null)
             {
                 return NotFound($"User does not exists");

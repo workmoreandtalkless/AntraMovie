@@ -21,7 +21,7 @@ namespace ApplicationCore.ServiceInterfaces
         public Task<List<MovieCastResponseModel>> GetCastMovieDetails(int Id);
         
         // below for ApI
-        public  Task<MovieCardResponseModel> GetTopRatedMovies();
+        public  Task<List<MovieCardResponseModel>> GetTopRatedMovies();
        
     }
 }

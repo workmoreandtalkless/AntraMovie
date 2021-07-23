@@ -11,7 +11,8 @@ namespace ApplicationCore.RepositoryInterfaces
     {
        
             Task<User> GetUserByEmail(string email);
+            Task<List<User>> GetAllUserAPI();
 
-    
+
     }
 }

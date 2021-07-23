@@ -25,8 +25,8 @@ namespace Infrastructure.Repositories
 
         public async Task<Cast> GetCastByIdAsync(int id)
         {
-            var cast = await _dbContext.Casts.Include(c => c.MovieCasts).ThenInclude(m=>m.Movie).FirstOrDefaultAsync();
-            Console.WriteLine();
+            var cast = await _dbContext.Casts.Include(c => c.MovieCasts).ThenInclude(m=>m.Movie).Where(c => c.Id==id).FirstOrDefaultAsync();
+           
              return cast;
         }
     }

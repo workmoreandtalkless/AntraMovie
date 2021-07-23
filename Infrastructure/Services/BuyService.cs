@@ -27,6 +27,8 @@ namespace Infrastructure.Services
         {
             var purchase = await _buyRepository.CheckMoviePurchaseForUser(model.UserId, model.MovieId);
 
+            var purchase1 = await _buyRepository.GetById(model.UserId, model.MovieId);
+
             if (purchase)
             {
                 throw new ConflictException("User already purchased this movie");
@@ -34,18 +36,90 @@ namespace Infrastructure.Services
 
             var entity = new Purchase
             {
-                PurchaseDateTime = model.PurchaseDateTime,
+                PurchaseDateTime = DateTime.Now,
                 MovieId = model.MovieId,
-                PurchaseNumber = model.PurchaseNumber,
-                TotalPrice = model.TotalPrice,
+                PurchaseNumber = Guid.NewGuid(),
+                TotalPrice = purchase1.TotalPrice,
                 UserId = model.UserId
+            };
+            var userbuyModel = new UserBuyMovieModel
+            {
+                PurchaseDateTime = DateTime.Now,
+                MovieId = model.MovieId,
+                PurchaseNumber = Guid.NewGuid(),
+                TotalPrice = purchase1.TotalPrice,
+                UserId = model.UserId
+
             };
             await _buyRepository.AddAsync(entity);
 
-            return model;
+            return userbuyModel;
         }
 
-   
+        public async Task<UserBuyMovieModel> AddMovieAPI(APIUserBuyMovieModel model)
+        {
+            var purchase = await _buyRepository.CheckMoviePurchaseForUser(model.UserId, model.MovieId);
+
+            /*var purchase1 = await _buyRepository.GetById(model.UserId, model.MovieId);*/
+
+            if (purchase)
+            {
+                throw new ConflictException("User already purchased this movie");
+            }
+
+            var entity = new Purchase
+            {
+                PurchaseDateTime = DateTime.Now,
+                MovieId = model.MovieId,
+                PurchaseNumber = Guid.NewGuid(),
+                TotalPrice = model.TotalPrice,
+                UserId = model.UserId
+            };
+            var userbuyModel = new UserBuyMovieModel
+            {
+                PurchaseDateTime = DateTime.Now,
+                MovieId = model.MovieId,
+                PurchaseNumber = Guid.NewGuid(),
+                TotalPrice = model.TotalPrice,
+                UserId = model.UserId
+
+            };
+            await _buyRepository.AddAsync(entity);
+
+            return userbuyModel;
+        }
+        public async Task<UserBuyMovieModel> updateMovieAPI(APIUserBuyMovieModel model)
+        {
+           /* var purchase = await _buyRepository.CheckMoviePurchaseForUser(model.UserId, model.MovieId);
+
+            if (purchase)
+            {
+                var purchase1 = await _buyRepository.GetById(model.UserId, model.MovieId);
+                await _buyRepository.DeleteAsync(purchase1);
+            }*/
+            var entity = new Purchase
+            {
+                PurchaseDateTime = DateTime.Now,
+                MovieId = model.MovieId,
+                PurchaseNumber = Guid.NewGuid(),
+                TotalPrice = model.TotalPrice,
+                UserId = model.UserId
+            };
+            var userbuyModel = new UserBuyMovieModel
+            {
+                PurchaseDateTime = DateTime.Now,
+                MovieId = model.MovieId,
+                PurchaseNumber = Guid.NewGuid(),
+                TotalPrice = model.TotalPrice,
+                UserId = model.UserId
+
+            };
+
+            await _buyRepository.AddAsync(entity);
+
+            return userbuyModel;
+        }
+
 
         /* public Task AddPurchase(Purchase purchase)
          {
@@ -80,6 +154,29 @@ namespace Infrastructure.Services
             }
             return moviecards;
         }
+
+        public async Task<List<UserBuyMovieModel>> GetAll()
+        {
+            var models = await _buyRepository.ListAllAsync();
+
+            var userbuyModel = new List<UserBuyMovieModel>();
+            foreach (var model in models)
+            {
+                userbuyModel.Add(new UserBuyMovieModel
+                {
+                    PurchaseDateTime = DateTime.Now,
+                    MovieId = model.MovieId,
+                    PurchaseNumber = Guid.NewGuid(),
+                    TotalPrice = model.TotalPrice,
+                    UserId = model.UserId
+
+                });
+
+            }
+            return userbuyModel;
+        }
+
+
 
 
         /* public async Task<UserBuyMovieModel> GetPurchaseMovieByMovieId(int mid)
