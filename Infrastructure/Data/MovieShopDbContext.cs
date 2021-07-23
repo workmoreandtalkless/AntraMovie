@@ -30,6 +30,7 @@ namespace Infrastructure.Data
         public DbSet<Purchase> Purchases { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<Favorite> Favorites { get; set; }
         // to use fluent API we need to override a method onModelCreating
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) //this is a virtual method from DbContext

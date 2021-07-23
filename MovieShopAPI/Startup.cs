@@ -57,6 +57,8 @@ namespace MovieShopAPI
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IBuyService, BuyService>();
             services.AddScoped<IBuyRepository, BuyRepository>();
+            services.AddScoped<IReviewService, ReviewService>();
+            services.AddScoped<IReviewRepository, ReviewRepository>();
 
             services.AddScoped<ICurrentUser, CurrentUser>();
             services.AddHttpContextAccessor(); 
@@ -68,10 +70,14 @@ namespace MovieShopAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MovieShopAPI v1"));
 
+            }
+            app.UseCors(builder => {
+                builder.WithOrigins(Configuration.GetValue<string>("movieShopSPAUrl")).AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+
+            });
             app.UseHttpsRedirection();
 
             app.UseRouting();

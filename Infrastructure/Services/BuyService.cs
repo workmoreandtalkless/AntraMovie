@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Entities;
+using ApplicationCore.Exceptions;
 using ApplicationCore.Models;
 using ApplicationCore.RepositoryInterfaces;
 using ApplicationCore.ServiceInterfaces;
@@ -24,6 +25,13 @@ namespace Infrastructure.Services
 
         public async Task<UserBuyMovieModel> AddMovie(UserBuyMovieModel model)
         {
+            var purchase = await _buyRepository.CheckMoviePurchaseForUser(model.UserId, model.MovieId);
+
+            if (purchase)
+            {
+                throw new ConflictException("User already purchased this movie");
+            }
+
             var entity = new Purchase
             {
                 PurchaseDateTime = model.PurchaseDateTime,
@@ -36,6 +44,8 @@ namespace Infrastructure.Services
 
             return model;
         }
+
+   
 
         /* public Task AddPurchase(Purchase purchase)
          {

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ApplicationCore.RepositoryInterfaces
 {
-    public interface IBuyRepository : IAsyncRepository<Purchase>
+    public interface IFavoriteRepository : IAsyncRepository<Favorite>
     {
-        Task<IEnumerable<Purchase>> GetPurchasesByuserId(int uId);
-        Task<bool> CheckMoviePurchaseForUser(int userId, int movieId);
+        Task<List<Favorite>> GetFavoriteByUserId(int uid);
+        Task<Favorite> FindFavorite(int id, int MovieId);
     }
 }

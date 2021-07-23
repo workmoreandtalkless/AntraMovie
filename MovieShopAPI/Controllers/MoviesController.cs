@@ -68,7 +68,7 @@ namespace MovieShopAPI.Controllers
         [Route("toprevenue")]
         public async Task<IActionResult> GetTopRevenueMovies()
         {
-           var movies = await _movieService.GetTopRevenueMovies();
+           var movies = await _movieService.GetTopRevenueMoviesAPI();
 
             if (!movies.Any())
             {

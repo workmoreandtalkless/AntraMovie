@@ -16,5 +16,9 @@ namespace ApplicationCore.ServiceInterfaces
 
         Task<List<MovieCardResponseModel>> GetPurchasedMoviesbyUserId(int uid);
         Task<UserBuyMovieModel> AddMovie(UserBuyMovieModel model);
+
+        
+
+
     }
 }

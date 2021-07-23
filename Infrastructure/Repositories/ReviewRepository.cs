@@ -16,6 +16,13 @@ namespace Infrastructure.Repositories
         {
         }
 
+        public async Task<Review> GetReviewById(int uid, int mid)
+        {
+            var review = await _dbContext.Reviews.Where(r =>r.UserId==uid && r.MovieId == mid).FirstOrDefaultAsync();
+
+            return review;
+        }
+
         public async Task<IEnumerable<Review>> GetReviewByMovieId(int mid)
         {
             //var reviews = await _dbContext.Reviews.Where(r => r.MovieId == mid).ToList();
@@ -24,6 +31,10 @@ namespace Infrastructure.Repositories
             return reviews;
         }
 
-        
+        public async Task<IEnumerable<Review>> GetReviewByUserId(int uid)
+        {
+            var reviews = await _dbContext.Reviews.Where(r => r.UserId == uid).ToListAsync();
+            return reviews;
+        }
     }
 }
