@@ -157,7 +157,7 @@ namespace Infrastructure.Services
 
         public async Task<List<UserBuyMovieModel>> GetAll()
         {
-            var models = await _buyRepository.ListAllAsync();
+            var models = await _buyRepository.GetAll();
 
             var userbuyModel = new List<UserBuyMovieModel>();
             foreach (var model in models)

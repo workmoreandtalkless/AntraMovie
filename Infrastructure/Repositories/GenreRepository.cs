@@ -18,15 +18,15 @@ namespace Infrastructure.Repositories
 
   
 
-        public override async Task<IEnumerable<Genre>> ListAllAsync()
-        {
+        //public override async Task<IEnumerable<Genre>> ListAllAsync()
+        //{
 
 
-            var genres = await _dbContext.Genres.Include(g => g.movieGenres).ThenInclude(g => g.Movie).ToListAsync();
-            /*.Include(g => g.movieGenres).ThenInclude(mg => mg.Movie)
-             .OrderBy(g => g.Name)*/
-            return genres;
-        }
+        //    var genres = await _dbContext.Genres.Include(g => g.movieGenres).ThenInclude(g => g.Movie).ToListAsync();
+        //    /*.Include(g => g.movieGenres).ThenInclude(mg => mg.Movie)
+        //     .OrderBy(g => g.Name)*/
+        //    return genres;
+        //}
 
         public async Task<List<Movie>> GetHighest30GrossingMovies()
         {

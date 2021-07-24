@@ -68,6 +68,15 @@ namespace Infrastructure.Data
         private void ConfigurePurchase(EntityTypeBuilder<Purchase> builder)
         {
             builder.ToTable("Purchase");
+
+            builder.HasOne(p => p.Movie)
+                .WithMany(m => m.Purchases)
+                .HasForeignKey(p => p.MovieId);
+
+            builder.HasOne(p => p.User)
+                .WithMany(u => u.Purchases)
+                .HasForeignKey(p => p.UserId);
+
             builder.HasKey(m => m.Id);
             builder.Property(m => m.UserId).IsRequired();
             builder.Property(m => m.PurchaseNumber).IsRequired();
